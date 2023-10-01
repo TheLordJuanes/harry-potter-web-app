@@ -2,13 +2,12 @@ import React from "react";
 import {Hero} from "react-daisyui";
 import LoginCard from "../components/LoginCard.jsx";
 import {Outlet} from "react-router";
-
-const getEmailFromLocalStorage = () => {
-    return localStorage.getItem("userEmail")
-}
+import {useSelector} from "react-redux";
 export default function Auth() {
 
-    if (getEmailFromLocalStorage() !== null) {
+    const userEmail = useSelector((state) => state.harryPotterUser.userEmail)
+
+    if (userEmail !== "") {
         window.location.href = "/home";
         return
     }
