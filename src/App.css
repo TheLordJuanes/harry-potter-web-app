@@ -7825,11 +7825,6 @@ details.collapse summary::-webkit-details-marker {
   isolation: auto;
 }
 
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mb-12 {
   margin-bottom: 3rem;
 }
@@ -7856,14 +7851,6 @@ details.collapse summary::-webkit-details-marker {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mb-14 {
-  margin-bottom: 3.5rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -7966,22 +7953,6 @@ details.collapse summary::-webkit-details-marker {
   height: 8rem;
 }
 
-.h-\[1\.125rem\] {
-  height: 1.125rem;
-}
-
-.h-\[1\.4375rem\] {
-  height: 1.4375rem;
-}
-
-.h-\[1239px\] {
-  height: 1239px;
-}
-
-.h-\[400px\] {
-  height: 400px;
-}
-
 .h-full {
   height: 100%;
 }
@@ -8010,48 +7981,12 @@ details.collapse summary::-webkit-details-marker {
   width: 8rem;
 }
 
-.w-\[1280px\] {
-  width: 1280px;
-}
-
-.w-\[18\.3125rem\] {
-  width: 18.3125rem;
-}
-
-.w-\[18\.75rem\] {
-  width: 18.75rem;
-}
-
-.w-\[21\.25rem\] {
-  width: 21.25rem;
-}
-
-.w-\[4\.8125rem\] {
-  width: 4.8125rem;
-}
-
-.w-\[6\.125rem\] {
-  width: 6.125rem;
-}
-
-.w-\[7\.3125rem\] {
-  width: 7.3125rem;
-}
-
-.w-\[9\.0625rem\] {
-  width: 9.0625rem;
-}
-
 .w-full {
   width: 100%;
 }
 
 .max-w-sm {
   max-width: 24rem;
-}
-
-.flex-shrink-0 {
-  flex-shrink: 0;
 }
 
 .shrink {
@@ -8097,16 +8032,8 @@ details.collapse summary::-webkit-details-marker {
   flex-wrap: wrap;
 }
 
-.items-start {
-  align-items: flex-start;
-}
-
 .items-center {
   align-items: center;
-}
-
-.justify-end {
-  justify-content: flex-end;
 }
 
 .justify-center {
@@ -8119,10 +8046,6 @@ details.collapse summary::-webkit-details-marker {
 
 .gap-2 {
   gap: 0.5rem;
-}
-
-.gap-5 {
-  gap: 1.25rem;
 }
 
 .-space-x-6 > :not([hidden]) ~ :not([hidden]) {
@@ -8165,10 +8088,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-divide-x-reverse: 1;
 }
 
-.overflow-hidden {
-  overflow: hidden;
-}
-
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -8189,10 +8108,6 @@ details.collapse summary::-webkit-details-marker {
 
 .rounded {
   border-radius: 0.25rem;
-}
-
-.rounded-\[0\.625rem\] {
-  border-radius: 0.625rem;
 }
 
 .rounded-full {
@@ -8414,11 +8329,6 @@ details.collapse summary::-webkit-details-marker {
   background-color: hsl(var(--wa) / var(--tw-bg-opacity));
 }
 
-.bg-white {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
 .bg-repeat {
   background-repeat: repeat;
 }
@@ -8446,20 +8356,8 @@ details.collapse summary::-webkit-details-marker {
   padding-bottom: 0.5rem;
 }
 
-.pr-0 {
-  padding-right: 0px;
-}
-
 .text-center {
   text-align: center;
-}
-
-.font-\[\'Roboto\'\] {
-  font-family: 'Roboto';
-}
-
-.font-sans {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-2xl {
@@ -8490,16 +8388,6 @@ details.collapse summary::-webkit-details-marker {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -8569,24 +8457,6 @@ details.collapse summary::-webkit-details-marker {
   font-variant-numeric: var(--tw-ordinal) var(--tw-slashed-zero) var(--tw-numeric-figure) var(--tw-numeric-spacing) var(--tw-numeric-fraction);
 }
 
-.leading-6 {
-  line-height: 1.5rem;
-}
-
-.leading-\[1\.1875rem\] {
-  line-height: 1.1875rem;
-}
-
-.text-\[\#007bff\] {
-  --tw-text-opacity: 1;
-  color: rgb(0 123 255 / var(--tw-text-opacity));
-}
-
-.text-\[\#555\] {
-  --tw-text-opacity: 1;
-  color: rgb(85 85 85 / var(--tw-text-opacity));
-}
-
 .text-accent {
   --tw-text-opacity: 1;
   color: hsl(var(--a) / var(--tw-text-opacity));
@@ -8595,11 +8465,6 @@ details.collapse summary::-webkit-details-marker {
 .text-accent-content {
   --tw-text-opacity: 1;
   color: hsl(var(--ac) / var(--tw-text-opacity));
-}
-
-.text-black {
-  --tw-text-opacity: 1;
-  color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
 .text-error {
@@ -8717,12 +8582,6 @@ details.collapse summary::-webkit-details-marker {
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
-.shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
