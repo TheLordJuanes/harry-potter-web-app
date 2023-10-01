@@ -6,6 +6,7 @@ import Movies from "../pages/Movies.jsx";
 import Potions from "../pages/Potions.jsx";
 import LoginCard from "../components/LoginCard.jsx";
 import RegisterCard from "../components/RegisterCard.jsx";
+import QuoteMessage from "../components/QuoteMessage.jsx";
 
 const Router = () => (
     <BrowserRouter>
@@ -15,10 +16,12 @@ const Router = () => (
                 <Route path="login"  element={<LoginCard />}/>
                 <Route path="register"  element={<RegisterCard />}/>
             </Route>
-            <Route path="/home"  element={<Home />}/>
-            <Route path="/characters"  element={<Characters/>}/>
-            <Route path="/movies"  element={<Movies/>}/>
-            <Route path="/potions"  element={<Potions/>}/>
+            <Route path="/home" element={<Home />} >
+                <Route path="/home" element={<QuoteMessage />}/>
+                <Route path="characters" element={<Characters />}/>
+                <Route path="movies" element={<Movies />}/>
+                <Route path="potions" element={<Potions />}/>
+            </Route>
         </Routes>
     </BrowserRouter>
 )

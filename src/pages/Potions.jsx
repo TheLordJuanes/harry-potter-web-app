@@ -1,13 +1,25 @@
-import React from 'react';
-import ElementCard from "../components/ElementCard.jsx";
+import React, {useEffect, useState} from 'react';
 import axios from "../config/axios.js";
+import PotionCard from "../components/PotionCard.jsx";
 
 export default function Potions() {
+    const [potions, setPotions] = useState([]);
+
     const getPotions = async () => {
-        const response = await axios.get("/potions");
+        await axios.get("/potions")
+            .then((response) => setPotions(response.data.data))
+            .catch((error) => console.log(error));
+    }
+
+    useEffect(() => {getPotions()},[]);
+
+    const renderPotions = () => {
+        return potions.map((potion) => <PotionCard key={potion.id} potion={potion.attributes}/>)
     }
 
     return (
-        <ElementCard/>
+        <div className="grid grid-cols-3 gap-4">
+            {renderPotions()}
+        </div>
     );
 }

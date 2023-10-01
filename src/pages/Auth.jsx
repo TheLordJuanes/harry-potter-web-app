@@ -3,7 +3,16 @@ import {Hero} from "react-daisyui";
 import LoginCard from "../components/LoginCard.jsx";
 import {Outlet} from "react-router";
 
+const getEmailFromLocalStorage = () => {
+    return localStorage.getItem("userEmail")
+}
 export default function Auth() {
+
+    if (getEmailFromLocalStorage() !== null) {
+        window.location.href = "/home";
+        return
+    }
+
     return (
         <>
             <Hero className="min-h-screen bg-base-200 flex flex-col justify-center items-center">
