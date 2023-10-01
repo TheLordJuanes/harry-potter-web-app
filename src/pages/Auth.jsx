@@ -1,8 +1,18 @@
 import React from "react";
 import {Hero} from "react-daisyui";
 import LoginCard from "../components/LoginCard.jsx";
+import {Outlet} from "react-router";
 
-export default function Login() {
+const getEmailFromLocalStorage = () => {
+    return localStorage.getItem("userEmail")
+}
+export default function Auth() {
+
+    if (getEmailFromLocalStorage() !== null) {
+        window.location.href = "/home";
+        return
+    }
+
     return (
         <>
             <Hero className="min-h-screen bg-base-200 flex flex-col justify-center items-center">
@@ -11,7 +21,7 @@ export default function Login() {
                         <h1 className="text-5xl font-bold mb-4 mt-12">Welcome to the Harry Potter World</h1>
                         <p className="text-2xl mb-12">The best place to find your favorite Harry Potter characters, movies, and potions!</p>
                     </div>
-                    <LoginCard />
+                    <Outlet/>
                 </Hero.Content>
             </Hero>
         </>

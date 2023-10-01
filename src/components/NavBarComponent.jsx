@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Button, Menu, Navbar} from "react-daisyui";
+import {useDispatch} from "react-redux";
+import {setEmailInStore} from "../redux/userSlice.js";
+import {auth} from "../firebase-config.js";
+import {signOut} from "firebase/auth";
 
 const handleHome = () => {
     window.location.href = "/home";
@@ -18,10 +22,26 @@ const handlePotions = () => {
 }
 
 const handleLogout = () => {
-    window.location.href = "/";
+    signOut(auth).then(() => {
+        localStorage.removeItem("userEmail")
+        window.location.href = "/";
+    })
+}
+
+const getEmailFromLocalStorage = () => {
+    return localStorage.getItem("userEmail")
 }
 
 export default function NavBarComponent() {
+    if (getEmailFromLocalStorage() === null) {
+        window.location.href = "/";
+        return
+    }
+    const dispatch = useDispatch()
+    dispatch(setEmailInStore({userEmail: getEmailFromLocalStorage()}))
+
+    const [harryPotterUserEmail, setHarryPotterUserEmail] = useState(getEmailFromLocalStorage())
+
     return (
         <>
             <Navbar className="bg-base-100 mb-48 shadow-xl rounded-box">
@@ -42,7 +62,18 @@ export default function NavBarComponent() {
                     </Menu>
                 </Navbar.Center>
                 <Navbar.End>
-                    <Button tag="a" color="error" onClick={handleLogout}>Logout</Button>
+                    <Menu horizontal>
+                        <Menu.Item>
+                            <details>
+                                <summary>{harryPotterUserEmail}</summary>
+                                <ul className="p-2 bg-base-100">
+                                    <li>
+                                        <Button tag="a" color="error" onClick={handleLogout}>Logout</Button>
+                                    </li>
+                                </ul>
+                            </details>
+                        </Menu.Item>
+                    </Menu>
                 </Navbar.End>
             </Navbar>
         </>
