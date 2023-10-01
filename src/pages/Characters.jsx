@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import axios from "../config/axios.js";
 import CharacterCard from "../components/CharacterCard.jsx";
-import {Outlet} from "react-router";
 
 export default function Characters() {
     const [characters, setCharacters] = useState([]);

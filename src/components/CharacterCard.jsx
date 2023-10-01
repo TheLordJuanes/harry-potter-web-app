@@ -14,6 +14,10 @@ export default function CharacterCard({character}) {
         ref.current?.close()
     }
 
+    const handleAddImageButton = () => {
+        window.location.href = `/home/characters/${character.id}/images`;
+    }
+
     return (
         <>
             <Card className="max-w-sm mx-auto overflow-hidden shadow-lg" side="lg">
@@ -25,7 +29,8 @@ export default function CharacterCard({character}) {
                     <p>Nationality: {character.attributes.nationality !== null ? <Badge color="accent">{character.attributes.nationality}</Badge> : <Badge color="neutral">Unknown</Badge>}</p>
                     <Card.Actions className="justify-end">
                         <div className="font-sans">
-                            <Button color="primary" onClick={handleShow}>Details</Button>
+                            <Button color="secondary" onClick={handleAddImageButton} style={{margin:5}}>Add images</Button>
+                            <Button color="primary" onClick={handleShow} style={{margin:5}}>Details</Button>
                             <Modal ref={ref}>
                                 <Modal.Header className="font-bold text-center">{character.attributes.name}</Modal.Header>
                                 <Modal.Body>
