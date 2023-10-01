@@ -1,3 +1,3 @@
 import { createContext } from "react";
 
-export  const HarryPotterContext  = createContext("")
+export const HarryPotterContext = createContext("")
