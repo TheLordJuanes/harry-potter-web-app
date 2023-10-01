@@ -1,10 +1,15 @@
 import React from 'react';
 import NavBarComponent from "../components/NavBarComponent.jsx";
 import {Outlet} from "react-router";
-import {Button, Hero} from "react-daisyui";
-import QuoteMessage from "../components/QuoteMessage.jsx";
+import {useSelector} from "react-redux";
 
 export default function Home() {
+    const userEmail = useSelector((state) => state.harryPotterUser.userEmail)
+
+    if (userEmail === "") {
+        window.location.href = "/login";
+        return
+    }
     return (
         <>
             <NavBarComponent/>

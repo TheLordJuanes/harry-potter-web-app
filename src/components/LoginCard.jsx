@@ -2,18 +2,21 @@ import React, {useState} from 'react';
 import {Alert, Button, Card, Form, Input} from "react-daisyui";
 import {auth} from "../firebase-config.js";
 import {signInWithEmailAndPassword} from "firebase/auth";
+import {useDispatch} from "react-redux";
+import {setEmailInStore} from "../redux/userSlice.js";
 
 export default function LoginCard() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
+    const dispatch = useDispatch()
 
     const handleLogin = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 setError("")
-                localStorage.setItem("userEmail", userCredential.user.email)
+                dispatch(setEmailInStore({userEmail: userCredential.user.email}))
                 window.location.href = "/home";
             })
             .catch((error) => {

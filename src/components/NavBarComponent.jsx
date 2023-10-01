@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Menu, Navbar} from "react-daisyui";
-import {useDispatch} from "react-redux";
-import {setEmailInStore} from "../redux/userSlice.js";
+import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../firebase-config.js";
 import {signOut} from "firebase/auth";
+import {setEmailInStore} from "../redux/userSlice.js";
 
 const handleHome = () => {
     window.location.href = "/home";
@@ -21,26 +21,19 @@ const handlePotions = () => {
     window.location.href = "/home/potions";
 }
 
-const handleLogout = () => {
-    signOut(auth).then(() => {
-        localStorage.removeItem("userEmail")
-        window.location.href = "/";
-    })
-}
-
-const getEmailFromLocalStorage = () => {
-    return localStorage.getItem("userEmail")
-}
-
 export default function NavBarComponent() {
-    if (getEmailFromLocalStorage() === null) {
-        window.location.href = "/";
-        return
-    }
-    const dispatch = useDispatch()
-    dispatch(setEmailInStore({userEmail: getEmailFromLocalStorage()}))
 
-    const [harryPotterUserEmail, setHarryPotterUserEmail] = useState(getEmailFromLocalStorage())
+    const dispatch = useDispatch()
+    const [harryPotterUserEmail, setHarryPotterUserEmail] = useState(
+        useSelector((state) => state.harryPotterUser.userEmail)
+    )
+
+    const handleLogout = () => {
+        signOut(auth).then(() => {
+            dispatch(setEmailInStore({userEmail: ""}))
+            window.location.href = "/";
+        })
+    }
 
     return (
         <>
