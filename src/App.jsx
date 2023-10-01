@@ -1,10 +1,10 @@
 import "./App.css"
-import Login from "./pages/Login.jsx";
+import Router from "./routes";
 
 export default function App() {
   return (
       <>
-          <Login/>
+          <Router/>
       </>
   )
 }
