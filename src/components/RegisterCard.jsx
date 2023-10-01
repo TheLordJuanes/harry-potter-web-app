@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Alert, Button, Card, Form, Input, Modal} from "react-daisyui";
 import {auth} from "../firebase-config.js";
 import {createUserWithEmailAndPassword} from "firebase/auth";
@@ -31,40 +31,37 @@ export default function RegisterCard() {
         }
     }, [isModalOpen]);
 
+    const handleLogin = () => {
+        window.location.href = "/login";
+    }
+
     const handleRegister = () => {
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(() => {
                 setError("")
                 handleShow()
             })
             .catch((error) => {
                 switch (error.code) {
                     case "auth/invalid-email":
-                        console.log("Invalid email!")
                         setError("Invalid email!")
                         break;
                     case "auth/email-already-in-use":
-                        console.log("Email already in use!")
                         setError("Email already in use!")
                         break;
                     case "auth/operation-not-allowed":
-                        console.log("Operation not allowed!")
                         setError("Operation not allowed!")
                         break;
                     case "auth/weak-password":
-                        console.log("Weak password! Password should be at least 6 characters")
                         setError("Weak password! Password should be at least 6 characters")
                         break;
                     case "auth/missing-password":
-                        console.log("Missing password!")
                         setError("Missing password!")
                         break;
                     case "auth/missing-email":
-                        console.log("Missing email!")
                         setError("Missing email!")
                         break;
                     default:
-                        console.log("Unknown error!")
                         setError("Unknown error!")
                         break;
                 }
@@ -83,7 +80,7 @@ export default function RegisterCard() {
                     <Input type="password" placeholder="••••••••••" className="input-bordered mb-4" value={password}
                            onChange={(e) => setPassword(e.target.value)}/>
                 </Form>
-                <Button className="btn-primary w-full mb-4" onClick={handleRegister}>Register</Button>
+                <Button className="btn-primary w-full" onClick={handleRegister}>Register</Button>
                 {
                     error !== "" && (
                         <Alert className="alert-error"
@@ -95,15 +92,16 @@ export default function RegisterCard() {
                             <span>{error}</span>
                         </Alert>)
                 }
-                <Button onClick={handleShow}>Open Modal</Button>
-                    <Modal ref={ref}>
-                        <Modal.Body>
-                            The user has been registered successfully!
-                        </Modal.Body>
-                        <Modal.Actions>
-                            <Button onClick={handleClose}>Close</Button>
-                        </Modal.Actions>
-                    </Modal>
+                <Form.Label className="mt-4" title="Already have an account?"/>
+                <Button className="btn-primary w-full mb-4" onClick={handleLogin}>Login</Button>
+                <Modal ref={ref}>
+                    <Modal.Body>
+                        The user has been registered successfully!
+                    </Modal.Body>
+                    <Modal.Actions>
+                        <Button onClick={handleClose}>Close</Button>
+                    </Modal.Actions>
+                </Modal>
             </Card.Body>
         </Card>
     );
