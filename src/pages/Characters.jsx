@@ -15,7 +15,7 @@ export default function Characters() {
     useEffect(() => {getCharacters()},[]);
 
     const renderCharacters = () => {
-        return characters.map((character) => <CharacterCard key={character.id} character={character} />)
+        return characters.map((character) => <CharacterCard key={character.id} character={character.attributes} />)
     }
 
     return (
