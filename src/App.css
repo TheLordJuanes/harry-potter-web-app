@@ -8438,6 +8438,10 @@ details.collapse summary::-webkit-details-marker {
   text-align: center;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
 .font-sans {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
