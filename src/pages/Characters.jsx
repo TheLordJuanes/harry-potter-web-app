@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "../config/axios.js";
 import CharacterCard from "../components/CharacterCard.jsx";
+import {Outlet} from "react-router";
 
 export default function Characters() {
     const [characters, setCharacters] = useState([]);
@@ -14,7 +15,7 @@ export default function Characters() {
     useEffect(() => {getCharacters()},[]);
 
     const renderCharacters = () => {
-        return characters.map((character) => <CharacterCard key={character.id} character={character.attributes} />)
+        return characters.map((character) => <CharacterCard key={character.id} character={character} />)
     }
 
     return (
