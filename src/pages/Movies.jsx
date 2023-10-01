@@ -15,7 +15,7 @@ export default function Movies() {
     useEffect(() => {getMovies()},[]);
 
     const renderMovies = () => {
-        return movies.map((movie) => <MovieCard key={movie.id} movie={movie.attributes}/>)
+        return movies.map((movie) => <MovieCard key={movie.id} movie={movie}/>)
     }
 
     return (
