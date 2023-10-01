@@ -7854,10 +7854,6 @@ details.collapse summary::-webkit-details-marker {
   margin-top: 1rem;
 }
 
-.mt-6 {
-  margin-top: 1.5rem;
-}
-
 .block {
   display: block;
 }
@@ -7958,6 +7954,10 @@ details.collapse summary::-webkit-details-marker {
   height: 8rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -7986,6 +7986,10 @@ details.collapse summary::-webkit-details-marker {
   width: 8rem;
 }
 
+.w-6 {
+  width: 1.5rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -7996,6 +8000,10 @@ details.collapse summary::-webkit-details-marker {
 
 .shrink {
   flex-shrink: 1;
+}
+
+.shrink-0 {
+  flex-shrink: 0;
 }
 
 .grow {
@@ -8346,6 +8354,10 @@ details.collapse summary::-webkit-details-marker {
   background-repeat: repeat;
 }
 
+.stroke-current {
+  stroke: currentColor;
+}
+
 .p-2 {
   padding: 0.5rem;
 }
@@ -8371,6 +8383,10 @@ details.collapse summary::-webkit-details-marker {
 
 .text-center {
   text-align: center;
+}
+
+.font-sans {
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-2xl {

@@ -7,7 +7,12 @@ export default function LoginCard() {
     const [password, setPassword] = useState("")
 
     const handleLogin = () => {
-        window.history.replaceState({}, "/", "/home")
+        console.log("Logging in...")
+        // window.history.replaceState({}, "/", "/home")
+    }
+
+    const handleRegister = () => {
+        window.history.replaceState({}, "/", "/register")
     }
 
     return (
@@ -17,13 +22,11 @@ export default function LoginCard() {
                 <Form>
                     <Form.Label title="Email" />
                     <Input type="text" placeholder="example@harry.potter.com" className="input-bordered" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </Form>
-                <Form>
                     <Form.Label title="Password" />
-                    <Input type="password" placeholder="••••••••••" className="input-bordered" value={password} onChange={(e) => setPassword(e.target.value)} />
-                </Form>
-                <Form className="mt-6">
-                    <Button className="btn-primary w-full" onClick={handleLogin}>Login</Button>
+                    <Input type="password" placeholder="••••••••••" className="input-bordered mb-4" value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <Button className="btn-primary w-full mb-4" onClick={handleLogin}>Login</Button>
+                    <Form.Label title="Don't have an account?" />
+                    <Button className="btn-primary w-full" onClick={handleRegister}>Register</Button>
                 </Form>
             </Card.Body>
         </Card>
