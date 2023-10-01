@@ -12,6 +12,8 @@ export default function LoginCard() {
     const handleLogin = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                setError("")
+                localStorage.setItem("userEmail", userCredential.user.email)
                 window.location.href = "/home";
             })
             .catch((error) => {
