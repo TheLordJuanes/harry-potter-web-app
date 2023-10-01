@@ -6,15 +6,15 @@ const handleHome = () => {
 }
 
 const handleCharacters = () => {
-    window.location.href = "/characters";
+    window.location.href = "/home/characters";
 }
 
 const handleMovies = () => {
-    window.location.href = "/movies";
+    window.location.href = "/home/movies";
 }
 
 const handlePotions = () => {
-    window.location.href = "/potions";
+    window.location.href = "/home/potions";
 }
 
 const handleLogout = () => {
@@ -26,7 +26,7 @@ export default function NavBarComponent() {
         <>
             <Navbar className="bg-base-100 mb-48 shadow-xl rounded-box">
                 <Navbar.Start>
-                    <a className="btn btn-ghost normal-case text-xl" onClick={handleHome}>Harry Potter API</a>
+                    <a className="btn btn-ghost normal-case text-xl" onClick={handleHome}>Harry Potter DB</a>
                 </Navbar.Start>
                 <Navbar.Center className="lg:flex">
                     <Menu horizontal className="px-1 bg-base-200 rounded-box">

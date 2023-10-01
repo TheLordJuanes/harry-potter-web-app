@@ -7994,6 +7994,10 @@ details.collapse summary::-webkit-details-marker {
   max-width: 24rem;
 }
 
+.max-w-md {
+  max-width: 28rem;
+}
+
 .shrink {
   flex-shrink: 1;
 }
@@ -8029,6 +8033,10 @@ details.collapse summary::-webkit-details-marker {
           appearance: none;
 }
 
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -8055,6 +8063,10 @@ details.collapse summary::-webkit-details-marker {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
 }
 
 .-space-x-6 > :not([hidden]) ~ :not([hidden]) {
@@ -8342,6 +8354,10 @@ details.collapse summary::-webkit-details-marker {
   background-color: hsl(var(--wa) / var(--tw-bg-opacity));
 }
 
+.bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
+}
+
 .bg-repeat {
   background-repeat: repeat;
 }
@@ -8367,6 +8383,21 @@ details.collapse summary::-webkit-details-marker {
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+.py-6 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.py-7 {
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .text-center {
