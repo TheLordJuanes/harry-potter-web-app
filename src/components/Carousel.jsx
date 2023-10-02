@@ -32,7 +32,6 @@ export default function Carousel({slides}) {
                 >
                     {
                         images.map((image, index) => {
-                            console.log(image.url);
                             return (
                                 <SwiperSlide className="swiper-slide" key={index}>
                                     <img src={image.url} alt="image1"/>
