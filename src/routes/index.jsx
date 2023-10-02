@@ -7,6 +7,7 @@ import Potions from "../pages/Potions.jsx";
 import LoginCard from "../components/LoginCard.jsx";
 import RegisterCard from "../components/RegisterCard.jsx";
 import QuoteMessage from "../components/QuoteMessage.jsx";
+import CharacterImages from "../pages/CharacterImages.jsx";
 
 const Router = () => (
     <BrowserRouter>
@@ -18,6 +19,7 @@ const Router = () => (
             </Route>
             <Route path="/home" element={<Home />} >
                 <Route path="/home" element={<QuoteMessage />}/>
+                <Route path="characters/:id/images" element={<CharacterImages />}/>
                 <Route path="characters" element={<Characters />}/>
                 <Route path="movies" element={<Movies />}/>
                 <Route path="potions" element={<Potions />}/>
