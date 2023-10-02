@@ -37,7 +37,7 @@ export default function NavBarComponent() {
 
     return (
         <>
-            <Navbar className="bg-base-100 mb-48 shadow-xl rounded-box">
+            <Navbar className="bg-base-100 mb-15 shadow-xl rounded-box">
                 <Navbar.Start>
                     <a className="btn btn-ghost normal-case text-xl" onClick={handleHome}>Harry Potter DB</a>
                 </Navbar.Start>
