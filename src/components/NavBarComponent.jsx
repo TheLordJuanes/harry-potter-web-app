@@ -1,30 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Menu, Navbar} from "react-daisyui";
+import {Dropdown, Menu, Navbar} from "react-daisyui";
 import {useDispatch, useSelector} from "react-redux";
 import {auth} from "../firebase-config.js";
 import {signOut} from "firebase/auth";
 import {setEmailInStore} from "../redux/userSlice.js";
-
-const handleHome = () => {
-    window.location.href = "/home";
-}
-
-const handleCharacters = () => {
-    window.location.href = "/home/characters";
-}
-
-const handleMovies = () => {
-    window.location.href = "/home/movies";
-}
-
-const handlePotions = () => {
-    window.location.href = "/home/potions";
-}
+import {useLocation} from "react-router";
 
 export default function NavBarComponent() {
 
+    const [activeButton, setActiveButton] = useState("");
+
+    const location = useLocation();
+
+    const handleHome = () => {
+        window.location.href = "/home";
+    }
+
+    const handleCharacters = () => {
+        window.location.href = "/home/characters";
+    }
+
+    const handleMovies = () => {
+        window.location.href = "/home/movies";
+    }
+
+    const handlePotions = () => {
+        window.location.href = "/home/potions";
+    }
+
     const dispatch = useDispatch()
-    const [harryPotterUserEmail, setHarryPotterUserEmail] = useState(
+
+    const [harryPotterUserEmail] = useState(
         useSelector((state) => state.harryPotterUser.userEmail)
     )
 
@@ -35,6 +41,19 @@ export default function NavBarComponent() {
         })
     }
 
+    useEffect(() => {
+        const currentPath = location.pathname;
+        if (currentPath === "/home") {
+            setActiveButton(null);
+        } else if (currentPath === "/home/characters") {
+            setActiveButton("characters");
+        } else if (currentPath === "/home/movies") {
+            setActiveButton("movies");
+        } else if (currentPath === "/home/potions") {
+            setActiveButton("potions");
+        }
+    }, [location.pathname]);
+
     return (
         <>
             <Navbar className="bg-base-100 mb-48 shadow-xl rounded-box">
@@ -44,29 +63,25 @@ export default function NavBarComponent() {
                 <Navbar.Center className="lg:flex">
                     <Menu horizontal className="px-1 bg-base-200 rounded-box">
                         <Menu.Item>
-                            <a onClick={handleCharacters}>Characters</a>
+                            <a className={activeButton === "characters" ? "active" : ""} onClick={handleCharacters}>Characters</a>
                         </Menu.Item>
                         <Menu.Item>
-                            <a onClick={handleMovies}>Movies</a>
+                            <a className={activeButton === "movies" ? "active" : ""} onClick={handleMovies}>Movies</a>
                         </Menu.Item>
                         <Menu.Item>
-                            <a onClick={handlePotions}>Potions</a>
+                            <a className={activeButton === "potions" ? "active" : ""} onClick={handlePotions}>Potions</a>
                         </Menu.Item>
                     </Menu>
                 </Navbar.Center>
                 <Navbar.End>
-                    <Menu horizontal>
-                        <Menu.Item>
-                            <details>
-                                <summary>{harryPotterUserEmail}</summary>
-                                <ul className="p-2 bg-base-100">
-                                    <li>
-                                        <Button tag="a" color="error" onClick={handleLogout}>Logout</Button>
-                                    </li>
-                                </ul>
-                            </details>
-                        </Menu.Item>
-                    </Menu>
+                    <Dropdown>
+                        <Dropdown.Toggle className="btn btn-ghost rounded-btn" button={false}>
+                            {harryPotterUserEmail}
+                        </Dropdown.Toggle>
+                        <Dropdown.Menu className="w-52 mt-4">
+                            <Dropdown.Item style={{ color: 'black', backgroundColor: '#f87272' }} onClick={handleLogout}>LOGOUT</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                 </Navbar.End>
             </Navbar>
         </>
